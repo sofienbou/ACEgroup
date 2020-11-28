@@ -1,0 +1,40 @@
+#ifndef FICHE_SUIVIS_H
+#define FICHE_SUIVIS_H
+#include <QString>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+
+class fiche_suivis
+{
+public:
+   
+    fiche_suivis();
+
+   fiche_suivis(QString,QString,float,QString,QString);
+   QString get_id();
+   QString get_fonction();
+   QString get_salaire();
+   QString get_date_embauche();
+   int  get_nbAbs();
+   //bool verif_email(QString );
+
+   bool ajouter_F();
+   //QString get_membr();
+//QString get_mail();
+   QSqlQueryModel * afficher_F ();
+   bool supprimer_F (int);
+    bool modifier_F(member);
+    QSqlQueryModel * rechercher_m(QSqlQuery );
+    bool verif_idm(QString ch_id);
+    bool verif_nom(QString nom);
+    QSqlQueryModel * afficher_memberlist();
+private :
+    QString id ;
+    QString fonction ;
+    QString salaire;
+    QString mail;
+   QString nbsc;
+
+};
+
+#endif // FICHE_SUIVIS_H
