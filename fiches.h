@@ -1,42 +1,47 @@
-/*#ifndef FICHES_H
+#ifndef FICHES_H
 #define FICHES_H
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include "ui_mainwindow.h"
+#include<QString>
+#include<QSqlDatabase>
+#include<QSqlError>
+#include<QSqlQuery>
+#include<QFileInfo>
+#include<QMessageBox>
+#include<QSqlQueryModel>
+#include<QDebug>
+#include<QFileDialog>
+#include<QDialog>
+
 #include "connection.h"
-
-class fiches
+class Fiches
 {
-
-    //Constructeurs
-    fiches();
-    fiches(int,QString,float,QString,int);
+public:
+    Fiches();
+    Fiches(int,QString,int,QString,int);
 
     //Getters
-    int getID(){return id;}
+    int getID(){return idf;}
     QString getfonction(){return  fonction;}
-    float getsalaire(){return salaire;}
+    int getsalaire(){return salaire;}
     QString getdateE(){return dateE;}
-    int getnum(){return nba;}
+    int getnba(){return nba;}
 
     //fonctionalités de bases relatives a l'entité Employés
-    bool ajouter_f();
-    QSqlQueryModel *afficher_f();
-    bool supprimer_f(int);
-    //bool modifier();
-    //bool verif_id(QString);
-    //bool verif_nom(QString);
-    //bool verif_email(QString);
+    bool ajouterF();
+    QSqlQueryModel *afficherF();
+    bool supprimerF(int);
+    bool modifierF(int);
+//bool supprimer(Ui::MainWindow *ui);
 
 
 private:
-     int id,nba;
+     int idf,nba,salaire;
      QString fonction,dateE;
-     float salaire ;
-    bool v;
-
-
+     //float salaire;
+     bool v;
 };
 
 #endif // FICHES_H
-*/

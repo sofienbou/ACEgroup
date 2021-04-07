@@ -1,9 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "employes.h"
-#include"fiches.h"
+#include "fiches.h"
 #include <QMainWindow>
-#include "connection.h"
+
+#include <QPainter>
+#include <QPrintDialog>
+#include <QPrinter>
+#include<QDebug>
 namespace Ui {
 class MainWindow;
 }
@@ -45,11 +49,25 @@ private slots:
 
     void on_pushButton_modi_clicked();
 
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_pushButton_imprimer_clicked();
+
+    void on_pushButton_pdf_clicked();
+
+    void on_pushButton_ajout_fiches_clicked();
+
+    void on_pushButton_supp_fiches_clicked();
+
+    void on_pushButton_modif_fiche_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     Employes tmpEmpl;
-    //fiches tmpFiche;
+    Fiches tmp;
 };
 
 #endif // MAINWINDOW_H

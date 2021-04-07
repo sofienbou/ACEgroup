@@ -3,6 +3,10 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include "ui_mainwindow.h"
+#include<QString>
+#include<QSqlDatabase>
+
 #include "connection.h"
 class Employes
 
@@ -27,17 +31,16 @@ public:
     QSqlQueryModel *afficher();
     bool supprimer(int);
     bool modifier(int);
-    QSqlQueryModel *recherche(int);
-    //bool verif_id(QString);
-    //bool verif_nom(QString);
-    //bool verif_email(QString);
+    void recherche(Ui::MainWindow *ui);
+    QSqlQueryModel * trierA();
+    QSqlQueryModel * trierZ();
 
 
 private:
      int id;
-    QString nom,prenom,adresse,dateN;
+     QString nom,prenom,adresse,dateN;
      int numero;
-    bool v;
+     bool v;
 };
 
 #endif

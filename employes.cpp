@@ -83,18 +83,37 @@ bool Employes::modifier(int idd)
     return query.exec();
 
 }
-/*
-QSqlQueryModel * Employes::recherche(int id)
-{
-    QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from Employes where ID LIKE '"+id+"%' or nom LIKE '"+nom+"%' or prenom LIKE '"+prenom+"%' or  adresse LIKE '"+adresse+"%' or dateN LIKE '"+dateN+"%',or numero LIKE '"+numero+"%' ");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Date de naissance"));
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Adresse"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Numéro"));
 
+void Employes::recherche(Ui::MainWindow *ui)
+{
+    QSqlQuery q;
+        QSqlQueryModel *modal=new QSqlQueryModel();
+        QString mot =ui->lineEdit_7->text();
+
+        q.prepare("select * from EMPLOYES where (ID LIKE '%"+mot+"%' or NOM LIKE '%"+mot+"%' or PRENOM LIKE '%"+mot+"%' )");
+
+        q.exec() ;
+        modal->setQuery(q);
+        ui->tableView_empl->setModel(modal);
+}
+
+QSqlQueryModel * Employes::trierA()
+{
+    QSqlQuery * q=new QSqlQuery();
+    QSqlQueryModel * model=new QSqlQueryModel();
+    q->prepare("SELECT * FROM Employes order by nom ASC");
+    q->exec();
+    model->setQuery(*q);
     return model;
 }
-*/
+
+QSqlQueryModel * Employes::trierZ()
+{
+    QSqlQuery * q=new QSqlQuery();
+    QSqlQueryModel * model=new QSqlQueryModel();
+    q->prepare("SELECT * FROM Employes order by nom DESC");
+    q->exec();
+    model->setQuery(*q);
+    return model;
+}
+

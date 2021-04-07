@@ -25,14 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+QT += printsupport
+
 SOURCES += \
     employes.cpp \
+    fiches.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     employes.h \
+    fiches.h \
         mainwindow.h \
     connection.h
 
